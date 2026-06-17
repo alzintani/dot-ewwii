@@ -1,0 +1,34 @@
+import core.command
+import api.wifi
+
+Script {
+  every = "1s"
+  
+  run = |w| {
+    let n = w.find("network")
+    let cmd = command.run_and_read("echo 'Done!'")
+    n.set_property("label", "cmd")
+  }
+}
+
+component Network() {
+  let nmcli = command.run_and_read("command -v nmcli")
+  if nmcli == "" {
+    Label {
+      class = "icon error"
+      text = "󰤭"
+    }
+  } else {
+    let wifi_found = wifi.current_connection()
+    let icon = if len(wifi_found) > 1 {"󰤨"} else {"󰤭"}
+
+    Box {
+      space_evenly = false
+      Button "network" {
+        class = "icon"
+        label = "󰤯"
+        onclick = config.terminal + " nmtui"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+import "nbcl/config.nbcl" as config
+import "nbcl/components.nbcl" as comps { Widgets, Separator, CloseButton }
+import "nbcl/bar.nbcl" as bar { Bar }
+
+Window "bar" {
+  monitor = 0
+  windowtype = "dock"
+  stacking = "fg"
+  wm_ignore = false
+  geometry = {
+    x = "0%"
+    y = "0"
+    width = "100%"
+    height = "30px"
+    anchor = "top center"
+  }
+  exclusive = true
+  reserve = {
+    side = "top"
+    distance = "0"
+  }
+  Bar {}
+}
+

@@ -1,0 +1,25 @@
+Poll "active_workspace" {
+  initial = "1"
+  interval = "1500ms"
+	cmd = "bash ~/.config/ewwii/scripts/bash.sh get workspace-active"
+}
+
+component Workspace() {
+  Box {
+    class = "workspaces"
+    halign = "center"
+    valign = "center"
+    space_evenly = false
+
+    for w in 1..5 {
+      Button {
+        class = global("active_workspace").template("workspace-icon{active_workspace == '${w}'? ' active' : ''}")
+        # onclick = ""
+        label = ""
+        tooltip = "Workspace ${w}"
+        valign = "center"
+        onclick = "bash ~/.config/ewwii/scripts/bash.sh run go-to ${w}"
+      }
+    }
+  }
+}

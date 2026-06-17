@@ -1,0 +1,27 @@
+/* CSS variables for wallust
+ * You can use this template by adding the following to wallust.toml:
+css = { src = "colors.css", dst = "~/.config/" }
+ */
+
+/* Special */
+$background: #101124;
+$foreground: #FFCB99;
+$cursor: #F276C2;
+
+/* Colors */
+$color0: #000104;
+$color1: #6F2694;
+$color2: #920934;
+$color3: #0562AC;
+$color4: #CF8BC6;
+$color5: #E620EB;
+$color6: #F2A576;
+$color7: #FFC291;
+$color8: #BF7A4E;
+$color9: #6F2694;
+$color10: #920934;
+$color11: #0562AC;
+$color12: #CF8BC6;
+$color13: #E620EB;
+$color14: #F2A576;
+$color15: #F7D8BF;

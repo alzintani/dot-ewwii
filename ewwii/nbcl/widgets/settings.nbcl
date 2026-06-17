@@ -1,0 +1,275 @@
+import core.command
+import core.regex
+
+component Settings() {
+  Box{
+    Button {
+      class = "icon"
+      onclick = "ewwii open wallpaper"
+      label = ""
+    }
+    Button {
+      class = "icon"
+      onclick = "ewwii open settings"
+      label = ""
+    }
+  }
+}
+
+Window "settings" {
+  # monitor = 0
+  windowtype = "normal"
+  stacking = "fg"
+  # wm_ignore = true
+  geometry = {
+    x = "0"
+    y = "0"
+    width = "600px"
+    height = "100%"
+    anchor = "top right"
+  }
+  # reserve = {
+  #   side = "top"
+  #   distance = "24%"
+  # }
+  # resizeable = true
+  # exclusive = true
+  # force_normal = true
+  
+  let bash = "~/.config/ewwii/scripts/bash.sh"
+
+  let font_scale = command.run_and_read("bash ${bash} get scss-var font-scale")
+  let bar_transparency = command.run_and_read("bash ${bash} get scss-var bar-transparency")
+  let window_transparency = command.run_and_read("bash ${bash} get scss-var window-transparency")
+
+  Box {
+    class = "window-container"
+    orientation = "v"
+    space_evenly = false
+
+    Box {
+      class = "window-arrow"
+      halign = "center"
+    }
+
+    Box {
+      class = "window settings-window"
+      halign = "fill"
+      valign = "top"
+      space_evenly = false
+      orientation = "v"
+
+      CloseButton {
+        window = "settings"
+      }
+
+      #
+      Box {
+        class = "settings-row"
+        space_evenly = false
+
+        Label {
+          text =  "Font Size"
+          width = 250
+          xalign = 0
+        }
+        Scale {
+          min = 0.0
+          max = 2.0
+          value = font_scale
+          onchange = "bash ${bash} set scss-var font-scale {}"
+          width = 350
+        }
+      }
+      Box {
+        class = "settings-row"
+        space_evenly = false
+
+        Label {
+          text =  "Bar Transparency"
+          width = 250
+          xalign = 0
+        }
+        Scale {
+          min = 0.0
+          max = 1.0
+          value = bar_transparency
+          onchange = "bash ${bash} set scss-var bar-transparency {}"
+          width = 350
+        }
+      }
+      Box {
+        class = "settings-row"
+        space_evenly = false
+
+        Label {
+          text =  "window Transparency"
+          width = 250
+          xalign = 0
+        }
+        Scale {
+          min = 0.0
+          max = 1.0
+          value = window_transparency
+          onchange = "bash ${bash} set scss-var window-transparency {}"
+          width = 350
+        }
+      }
+      Box {
+        class = "settings-row"
+        space_evenly = false
+
+        Label {
+          text =  "Bar Style"
+          width = 250
+          xalign = 0
+        }
+        ComboBoxText {
+          width = 350
+          items = [
+            "style1",
+            "style2",
+            "style3",
+            "style4",
+            "style5",
+            "style6",
+            "style7",
+            "style8"
+          ]
+          onchange = "sed -i 's/^  bar_style = \".*\"/  bar_style = \"{}\"/' ~/.config/ewwii/nbcl/config.nbcl"
+        }
+      }
+
+        let schemes = command.run_and_read('find ~/.config/ewwii/scss/color-schemes/* -maxdepth 1 -printf "%f\n" -type f -name "*.scss"')
+        let schemes_list = regex.find_all(schemes, "[0-9a-zA-Z-_./]+")
+
+      Box {
+        class = "settings-row"
+        space_evenly = false
+
+        Label {
+          text =  "Color Scheme"
+          width = 250
+          xalign = 0
+        }
+        ComboBoxText {
+          width = 350
+          items = schemes_list
+          onchange = "bash ${bash} set scss-var color-schemes {}"
+        }
+      }
+      Box {
+        class = "settings-row"
+        space_evenly = false
+
+        Label {
+          text =  "Icons Style"
+          width = 250
+          xalign = 0
+        }
+        ComboBoxText {
+          width = 350
+          items = [
+            "style1",
+            "style2",
+            "style3",
+            "style4",
+          ]
+          onchange = "sed -i 's/^  icons_style = \".*\"/  icons_style = \"{}\"'/ ~/.config/ewwii/nbcl/config.nbcl"
+        }
+      }
+      #
+    }
+  }
+}
+
+component Wallpaper( path ) {
+
+  Input "wallpaper-path" {
+    placeholder = path
+    value = path
+    width = 400
+    halign = "center"
+    # onaccept = ""
+  }
+
+  Box {
+    orientation = "h"
+    # halign = "center"
+
+    Scroll {
+      vscroll = false
+      hscroll = true
+
+      Box {
+        orientation = "h"
+        halign = "center"
+
+        let images = command.run_and_read("find ${path} -maxdepth 2 -type f -name '*.jpg'")
+        let images_list = regex.find_all(images, "[0-9a-zA-Z-_.@/]+")
+
+        for bg in images_list {
+          EventBox {
+            onclick = config.setwallpaper_cmd + " ${bg} "
+            # onkeypress = "bash -c 'if [ {} == 36 ]; then ${setwallpaper_cmd}; fi'"
+            cursor = "pointer"
+            focusable = true
+            
+            Image {
+              content_fit = "cover"
+              can_shrink = true
+              path = "${bg}"
+              image_width = 250
+              image_height = 150
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+Window "wallpaper" {
+  windowtype = "dialog"
+  stacking = "fg"
+  # wm_ignore = false
+  geometry = {
+    # x = "0%"
+    # y = "50px"
+    width = "100%"
+    # height = "30px"
+    anchor = "top center"
+  }
+  # exclusive = true
+  # reserve = {
+  #   side = "top"
+  #   distance = "0%"
+  # }
+
+  Box {
+    class = "window-container"
+    orientation = "v"
+    space_evenly = false
+
+    Box {
+      class = "window-arrow"
+      halign = "center"
+    }
+
+    Box {
+      class = "window wallpaper-window"
+      halign = "fill"
+      valign = "top"
+      space_evenly = false
+      orientation = "v"
+
+      CloseButton {
+        window = "wallpaper"
+      }
+
+      Wallpaper "bg-wallpaper" {
+        path = config.wallpaper_path
+      }
+    }
+  }
+}

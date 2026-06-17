@@ -1,0 +1,30 @@
+component Launcher() {
+
+  Box {
+    orientation = "h"
+    space_evenly = false
+  
+    Button {
+      class = "main-menu icon"
+      label = "󱓟"
+      onclick = config.menu
+    }
+
+    Separator {
+      icon = "󱗼"
+    }
+
+    if len(config.apps) > 0 {
+      Separator {}
+
+      for a in values(config.apps) {
+        Button {
+          class = "button icon"
+          onclick = a.command
+          label = a.name
+          tooltip = a.tooltip
+        }
+      }
+    }
+  }
+}

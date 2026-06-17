@@ -1,0 +1,72 @@
+component Power() {
+  Box {
+    Button {
+      class = "button icon"
+      onclick = "ewwii open power"
+      label = ""
+    }
+  }
+}
+
+Window "power" {
+  monitor = 0
+  windowtype = "desktop"
+  stacking = "fg"
+  wm_ignore = false
+  geometry = {
+    x = "0"
+    y = "0"
+    width = "110%"
+    height = "110%"
+    anchor = "center center"
+  }
+  exclusive = true
+
+  Box {
+      class = "power-window"
+
+    Box {
+      halign = "center"
+      valign = "center"
+      space_evenly = false
+      
+      Button {
+        class = "power-icon lockscreen"
+        label = "󱥠"
+        tooltip = "Lock Screen"
+        onclick = "ewwii close power"
+        onclick = config.lockscreen_cmd
+      }
+      Button {
+        class = "power-icon logout"
+        label = "󰗽"
+        onclick = config.logout_cmd
+      }
+      Button {
+        class = "power-icon suspend"
+        label = "󰒲"
+        tooltip = "Suspend"
+        onclick = config.suspend_cmd
+      }
+      Button {
+        class = "power-icon restart"
+        label = "󰜉"
+        tooltip = "Restart"
+        onclick = config.reboot_cmd
+      }
+      Button {
+        class = "power-icon poweroff"
+        label = ""
+        tooltip = "Poweroff"
+        onclick = config.poweroff_cmd
+      }
+      Button {
+        class = "power-icon cancel"
+        label = ""
+        tooltip = "Cancel"
+        onclick = "ewwii close power"
+      }
+    }
+  }
+}
+  

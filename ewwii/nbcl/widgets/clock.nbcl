@@ -1,0 +1,63 @@
+import core.regex
+
+Poll "time" {
+  initial = ""
+  interval = "1000ms"
+  # cmd = "date +%H:%M"
+  cmd = "date"
+}
+
+Poll "date" {
+  initial = ""
+  interval = "5000ms"
+  cmd = "date +%Y-%m-%d"
+}
+
+component Clock() {
+  Box {
+    space_evenly = false
+    Button {
+      label = global("time")
+      tooltip = global("date")
+      onclick = "ewwii open calendar"
+    }
+  }
+}
+
+Window "calendar" {
+  monitor = 0
+  windowtype = "dialog"
+  # stacking = "fg"
+  # wm_ignore = false
+  geometry = {
+    x = "0"
+    y = "0"
+    width = "500px"
+    # height = "400px"
+    anchor = "top center"
+  }
+  # exclusive = true
+
+  Box {
+    class = "window-container"
+    orientation = "v"
+    space_evenly = false
+
+    Box {
+      class = "window-arrow"
+      halign = "center"
+    }
+
+    Box {
+      class = "window calendar-window"
+      space_evenly = false
+      orientation = "v"
+
+      CloseButton {
+        window = "calendar"
+      }
+      Calendar {}
+    }
+  }
+}
+

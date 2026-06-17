@@ -1,0 +1,182 @@
+@import "scss/variables";
+
+$firefox-color: orange;
+$yazi-color: yellow;
+$terminal-color: gray;
+$bar_radius: 10px;
+
+$background-color: rgba($background, $bar-transparency);
+$window-bgcolor: rgba($background, $window-transparency);
+$red: red;
+$green: green;
+$black: black;
+$orange: orange;
+$blue: blue;
+
+
+* {
+  all: unset;
+
+}
+
+@import "scss/elements";
+
+widget {
+  border: 0px;
+}
+
+label {
+  margin: 0 2px;
+}
+
+// Global Styles
+.bar,
+.window {
+  /* color: $foreground; */
+  color: lighten($color1, 20%);
+  font-size: calc(12px * $font-scale);
+}
+
+.separator {
+  /* border: 1px solid yellow; */
+  opacity: 0.8;
+  padding: 0 10px;
+
+  &.edges {
+    padding: 0 2px;
+  }
+}
+
+.error {
+  color: $red;
+}
+
+.primary {
+  color: $color1;
+}
+
+.workspaces {
+  margin: 2px;
+
+  .workspace-icon {
+    padding: 0 7px;
+    margin: 0 3px;
+    border-radius: 10px;
+    background: rgba(#000000, 0.9);
+    border: 1px solid rgba(#ffffff, 0.1);
+    transform: scale(0.7);
+    transition: transform 0.3s ease-out, background 10ms linear;
+
+    &:hover {
+      /* border: 1px solid rgba(#ffffff, 0.1); */
+      box-shadow: inset 1px 1px 4px rgba(#000000, 0.4);
+      transform: scale(1.3);
+      background: $orange;
+    }
+
+    &.active {
+      background: rgba($green, 0.99);
+    }
+
+    &.not-empty {
+      border-top-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+@import "scss/bar-styles";
+@import "scss/icons-styles";
+
+.window-container {
+  .window-arrow {
+    background: transparent;
+    border: 15px solid rgba(#000000, 0);
+    border-bottom-color: $window-bgcolor;
+    border-top: 0;
+  }
+
+  .window {
+    background: $window-bgcolor;
+    padding: 10px;
+
+    &.settings-window {
+      border-radius: 10px;
+      margin: 0 10px;
+
+      .settings-row {
+        border: 1px solid rgba(#ffffff, 0.1);
+        margin: 5px 0;
+        padding: 5px;
+        border-radius: 10px;
+
+        label {
+          padding-left: 5px;
+        }
+      }
+    }
+
+    * {
+      &:focus {
+        outline: 2px solid rgba(#AAAAAA, 0.5);
+      }
+    }
+
+    .close-button {
+      padding: 5px 10px;
+      font-size: 30px;
+      color: rgba($red, 0.7);
+      margin: 5px;
+      /* margin-top: -5px; */
+      margin-bottom: -5px;
+      /* border-radius: 50%; */
+      outline-width: 0;
+      transform: scale(0.8);
+      transition: all 0.2s ease-out;
+
+      &:hover {
+        transform: scale(1);
+        outline-width: 1px;
+      }
+    }
+  }
+}
+
+.power-window {
+  background: $background-color;
+
+  .power-icon {
+    color: #dddddd;
+    font-size: 30px;
+    padding: 40px 50px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(20, 100, 100, 0.9);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6);
+    text-shadow: none;
+    opacity: 0.5;
+    transition: all 0.5s;
+
+    &.cancel {
+      background: rgba(#ff0000, 0.9);
+    }
+
+    &.lockscreen {
+      background: rgba(100, 100, 20, 0.9);
+    }
+
+    &.suspend {
+      background: rgba(100, 100, 200, 0.9);
+    }
+
+    &.poweroff {
+      background: rgba(100, 50, 50, 0.9);
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+  }
+}

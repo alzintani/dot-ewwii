@@ -1,0 +1,16 @@
+scale trough {
+  background: darken($background-color, 50%);
+  border-radius: 50px;
+  min-height: 8px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+
+  highlight {
+    /* background: $orange; */
+    background: rgba($color1, 1.0);
+    color: $foreground;
+    border-radius: 10px;
+  }
+
+}

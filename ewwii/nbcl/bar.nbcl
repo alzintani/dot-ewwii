@@ -1,0 +1,77 @@
+import "nbcl/widgets/launcher.nbcl" as lnc { Launcher }
+import "nbcl/widgets/workspaces.nbcl" as wps { Workspace }
+import "nbcl/widgets/tasks.nbcl" as tasks { Tasks }
+import "nbcl/widgets/notifications.nbcl" as notifi { Notificatios }
+import "nbcl/widgets/network.nbcl" as network { Network }
+import "nbcl/widgets/sound.nbcl" as sound { Sound }
+import "nbcl/widgets/clock.nbcl" as clock { Clock }
+import "nbcl/widgets/power.nbcl" as power { Power }
+import "nbcl/widgets/settings.nbcl" as settings { Settings }
+
+fn start() {
+  Box {
+    class = "widgets-container widgets-start-container"
+    halign = "start"
+    space_evenly = false
+
+    Widgets {
+      widget = "start"
+
+      Launcher {}
+      Workspace {}
+      Separator {}
+      Tasks {}
+    }
+  }
+}
+
+fn middle() {
+  Box {
+    class = "widgets-container widgets-middle-container"
+    orientation = "h"
+    halign = "center"
+    space_evenly = false
+
+    Widgets {
+      widget = "middle"
+
+      Clock {}
+    }
+  }
+}
+
+fn end() {
+  Box {
+    class = "widgets-container widgets-end-container"
+    orientation = "h"
+    halign = "end"
+    space_evenly = false
+
+    Widgets {
+      widget = "end"
+
+      Notificatios {}
+      Separator {}
+      Sound {}
+      Separator {}
+      Network {}
+      Separator {}
+      Power {}
+      Settings {}
+    }
+  }
+}
+
+component Bar() {
+  Box {
+    class ="bar-container " + config.bar_style + " icons-" + config.icons_style
+    orientation = "h"
+    halign = "fill"
+    # space_evenly = false
+
+    bar.start()
+    bar.middle()
+    bar.end()
+  }
+}
+

@@ -1,0 +1,12 @@
+component Notificatios() {
+  Box {
+    space_evenly = false
+
+    Button {
+      class = "icon"
+      label = "󰂚"
+      # label = "󱅫"
+      onclick = config.notifi_center_cmd
+    }
+  }
+}

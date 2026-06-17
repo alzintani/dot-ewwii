@@ -1,0 +1,15 @@
+Poll "window_title" {
+	initial = ""
+	interval = "1000ms"
+	# skip_unchanged = false
+	cmd = "bash ~/.config/ewwii/scripts/bash.sh get window-title"
+}
+
+component Tasks() {
+  Label {
+    text = global("window_title")
+    limit_width = 30
+    truncate_left =  true
+    lines = 1
+  }
+}

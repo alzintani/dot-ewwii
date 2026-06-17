@@ -1,0 +1,93 @@
+@import "elements/calendar";
+@import "elements/tooltip";
+@import "elements/scale";
+
+expander-widget {
+  /* border: 1px solid green; */
+
+  title {
+    font-size: 25px;
+  }
+}
+
+scrolledwindow {
+  margin: 1px 0;
+  /* padding: 20px 5px; */
+  /* background: rgba(#000000, 0.4); */
+
+  scrollbar {
+    /* margin-top: 10px; */
+    background: rgba(#000000, 0.4);
+
+    slider {
+      padding: 4px;
+      border-radius: 4px;
+      border: 1px solid rgba(#FFFFFF, 0.4);
+    }
+  }
+}
+
+picture {
+  border: 2px solid rgba($color1, 0.5);
+  border-radius: 10px;
+  margin: 20px 20px;
+}
+
+checkbutton {
+  padding: 10px;
+  border: 1px solid $green;
+
+  check {
+    padding: 10px;
+    border: 1px solid $green;
+  }
+}
+
+text,
+combobox button {
+  background: rgba(#ffffff, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+
+  border: 1px solid $color1;
+
+  placeholder {
+    border: 1px dotted $green;
+  }
+}
+
+combobox {
+  popover {
+    background: rgba(#000000, 0.9);
+    border: 1px solid rgba(#FFFFFF, 0.4);
+    border-radius: 10px;
+
+    /* range { */
+    /* border: 1px solid rgba(#FFFFFF, 0.4); */
+    /* background: red; */
+    /* } */
+  }
+}
+
+colorbutton {
+  border: 1px solid $blue;
+  padding: 10px;
+}
+
+colorchooser {
+  border: 1px solid $red;
+  padding: 10px;
+}
+
+widget {
+  border: 1px solid $green;
+}
+
+progressbar {
+  border: 1px solid $orange;
+  padding: 20px;
+
+  trough {
+    border: 1px solid $green;
+  }
+}

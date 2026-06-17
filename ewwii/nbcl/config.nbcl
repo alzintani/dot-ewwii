@@ -1,0 +1,39 @@
+let config = {
+
+  menu = "fuzzel --show"
+  terminal = "foot -e"
+  
+  wallpaper_path = "~/wallpaper"
+
+  bar_style = "style1"
+  icons_style = "style1"
+
+  setwallpaper_cmd = "swww img --transition-type any"
+  # setwallpaper_cmd = "swaybg -i"
+
+  notifi_center_cmd = "swaync-client -t"
+  lockscreen_cmd = "swaylock"
+  logout_cmd = ""
+  suspend_cmd = "loginctl suspend"
+  reboot_cmd = "loginctl reboot"
+  poweroff_cmd = "loginctl poweroff"
+
+  # uncomment apps or add more apps from here 
+  apps = {
+    # kitty= {
+    #   command= "kitty"
+    #   name= ""
+    #   tooltip= "kitty"
+    # }
+    # yazi= {
+    #   command= "kitty -e yazi &"
+    #   name= "󰇥"
+    #   tooltip= "Yazi"
+    # }
+    # firefox= {
+    #   command= "firefox"
+    #   name= ""
+    #   tooltip= "Firefox"
+    # }
+  }
+}

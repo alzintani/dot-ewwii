@@ -1,0 +1,27 @@
+Poll  "volume" {
+  initial = "50"
+  interval = "1000ms"
+  cmd = "bash ~/.config/ewwii/scripts/sound.sh"
+}
+
+component Sound() {
+  Box {
+    orientation = "h"
+    space_evenly = false
+    
+    Scale {
+      min = 0
+      max = 100
+      round_digits = 0
+      value = global("volume")
+      # draw_value = true
+      # value_pos = "right"
+      onchange = "bash ~/.config/ewwii/scripts/sound.sh {}"
+    }
+    Button {
+      class = "icon"
+      label = global("volume").template("{volume == '0' ? '󰖁' : '󰕾'}")
+      onclick = "bash ~/.config/ewwii/scripts/sound.sh 0"
+    }
+  }
+}

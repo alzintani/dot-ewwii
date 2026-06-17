@@ -1,0 +1,40 @@
+component Widgets(widget) {
+  Separator {
+    icon = ""
+    class = "edges before"
+  }
+
+  Box {
+    class = "widgets-${widget}"
+    space_evenly = false
+  
+    self.children
+  }
+
+  Separator {
+    icon = ""
+    class = "edges after"
+  }
+}
+
+component Separator(class?, icon?) {
+  Box {
+    class = if type_of(class) == "Null"  {"separator"} else {class}
+    space_evenly = false
+
+    Label {
+      text = if type_of(icon) == "Null" { "" } else { icon }
+    }
+  }
+}
+
+component CloseButton(window) {
+  Button {
+    class = "close-button"
+    label = ""
+    tooltip = "Close"
+    halign = "end"
+    onclick = "ewwii close ${window}"
+  }
+}
+
