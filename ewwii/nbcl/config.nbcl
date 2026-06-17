@@ -1,7 +1,7 @@
 let config = {
 
   menu = "fuzzel --show"
-  terminal = "foot -e"
+  terminal = "kitty -e"
   
   wallpaper_path = "~/wallpaper"
 
@@ -20,11 +20,11 @@ let config = {
 
   # uncomment apps or add more apps from here 
   apps = {
-    # kitty= {
-    #   command= "kitty"
-    #   name= ""
-    #   tooltip= "kitty"
-    # }
+    kitty= {
+      command= "kitty"
+      name= ""
+      tooltip= "kitty"
+    }
     # yazi= {
     #   command= "kitty -e yazi &"
     #   name= "󰇥"
