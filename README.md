@@ -2,7 +2,7 @@
   <img src="images/preview.jpg" alt="ewwii bar preview" width="800">
 </p>
 
-<h1 align="center">ewwii</h1>
+<h1 align="center">dot-ewwii</h1>
 
 <p align="center">
   A customizable EWWII status bar with multiple bar styles, color schemes, and an integrated settings panel.
