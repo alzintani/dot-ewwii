@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/preview.png" alt="ewwii bar preview" width="800">
+  <img src="images/preview.jpg" alt="ewwii bar preview" width="800">
 </p>
 
 <h1 align="center">ewwii</h1>
@@ -132,14 +132,14 @@ You can create your own scheme by copying and adapting `scss/color-schemes/templ
 
 | Preview | Style | Description |
 |---|---|---|
-| ![](images/style1.png) | **style1** | Rounded sections with border and shadow |
-| ![](images/style2.png) | **style2** | Diamond-shaped separators with diagonal gradients |
-| ![](images/style3.png) | **style3** | Full-width background bar with padding |
-| ![](images/style4.png) | **style4** | Rounded full bar with border *(default)* |
-| ![](images/style5.png) | **style5** | Bottom-border accent bar |
-| ![](images/style6.png) | **style6** | Horizontal gradient bar |
-| ![](images/style7.png) | **style7** | Inset shadow with inner border |
-| ![](images/style8.png) | **style8** | Bordered start container with inset shadow |
+| ![](images/style1.jpg) | **style1** | Rounded sections with border and shadow |
+| ![](images/style2.jpg) | **style2** | Diamond-shaped separators with diagonal gradients |
+| ![](images/style3.jpg) | **style3** | Full-width background bar with padding |
+| ![](images/style4.jpg) | **style4** | Rounded full bar with border *(default)* |
+| ![](images/style5.jpg) | **style5** | Bottom-border accent bar |
+| ![](images/style6.jpg) | **style6** | Horizontal gradient bar |
+| ![](images/style7.jpg) | **style7** | Inset shadow with inner border |
+| ![](images/style8.jpg) | **style8** | Bordered start container with inset shadow |
 
 Set via the settings panel or by changing `bar_style` in `config.nbcl`.
 
