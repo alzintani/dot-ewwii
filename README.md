@@ -155,7 +155,7 @@ exec-once = ewwii open bar
 
 ## Credits
 
-- [Elkowar's EWW](https://github.com/elkowar/eww) — The widget system that makes this possible
+- [EWWII](https://github.com/Ewwii-sh/ewwii) — The widget system that makes this possible
 - Color scheme creators: [Catppuccin](https://github.com/catppuccin), [Dracula](https://draculatheme.com/), [Nord](https://www.nordtheme.com/), [Gruvbox](https://github.com/morhetz/gruvbox), [Tokyo Night](https://github.com/enkia/tokyo-night-vscode-theme), and [One Dark](https://github.com/atom/atom)
 
 ## License
