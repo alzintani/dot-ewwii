@@ -5,7 +5,7 @@ component Widgets(widget) {
   }
 
   Box {
-    class = "widgets-${widget}"
+    class = "widgets-" + widget
     space_evenly = false
   
     self.children
@@ -34,7 +34,10 @@ component CloseButton(window) {
     label = ""
     tooltip = "Close"
     halign = "end"
-    onclick = "ewwii close ${window}"
+    onclick = "ewwii close " + window
+    # onclick = nbcl(|| {
+    #     print("Hello, World! = ${window}")
+    # })
   }
 }
 

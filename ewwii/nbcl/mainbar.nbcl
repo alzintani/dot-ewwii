@@ -1,12 +1,12 @@
-import "nbcl/widgets/launcher.nbcl" as lnc { Launcher }
-import "nbcl/widgets/workspaces.nbcl" as wps { Workspace }
-import "nbcl/widgets/tasks.nbcl" as tasks { Tasks }
-import "nbcl/widgets/notifications.nbcl" as notifi { Notificatios }
-import "nbcl/widgets/network.nbcl" as network { Network }
-import "nbcl/widgets/sound.nbcl" as sound { Sound }
-import "nbcl/widgets/clock.nbcl" as clock { Clock }
-import "nbcl/widgets/power.nbcl" as power { Power }
-import "nbcl/widgets/settings.nbcl" as settings { Settings }
+import "widgets/launcher.nbcl" as lnc { Launcher }
+import "widgets/workspaces.nbcl" as wps { Workspace }
+import "widgets/tasks.nbcl" as tasks { Tasks }
+import "widgets/notifications.nbcl" as notifi { Notificatios }
+import "widgets/network.nbcl" as network { Network }
+import "widgets/sound.nbcl" as sound { Sound }
+import "widgets/clock.nbcl" as clock { Clock }
+import "widgets/power.nbcl" as power { Power }
+import "widgets/settings.nbcl" as settings { Settings }
 
 fn start() {
   Box {
@@ -62,16 +62,16 @@ fn end() {
   }
 }
 
-component Bar() {
+component MainBar() {
   Box {
     class ="bar-container " + config.bar_style + " icons-" + config.icons_style
     orientation = "h"
     halign = "fill"
     # space_evenly = false
 
-    bar.start()
-    bar.middle()
-    bar.end()
+    mainbar.start()
+    mainbar.middle()
+    mainbar.end()
   }
 }
 

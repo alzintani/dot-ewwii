@@ -1,6 +1,6 @@
 Poll "active_workspace" {
   initial = "1"
-  interval = "1500ms"
+  interval = "1000ms"
 	cmd = "bash ~/.config/ewwii/scripts/bash.sh get workspace-active"
 }
 
@@ -10,15 +10,14 @@ component Workspace() {
     halign = "center"
     valign = "center"
     space_evenly = false
-
     for w in 1..5 {
+      # w = count.to_string()
       Button {
-        class = global("active_workspace").template("workspace-icon{active_workspace == '${w}'? ' active' : ''}")
-        # onclick = ""
+        class = global("active_workspace").template("workspace-icon{active_workspace == '" + w.to_string() + "'? ' active' : ''}")
         label = ""
-        tooltip = "Workspace ${w}"
+        tooltip = "Workspace " + w.to_string()
         valign = "center"
-        onclick = "bash ~/.config/ewwii/scripts/bash.sh run go-to ${w}"
+        onclick = "bash ~/.config/ewwii/scripts/bash.sh run go-to " + w.to_string()
       }
     }
   }

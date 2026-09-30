@@ -29,6 +29,7 @@ label {
   margin: 0 2px;
 }
 
+// Global Styles
 .bar,
 .window {
   /* color: $foreground; */
@@ -37,6 +38,7 @@ label {
 }
 
 .separator {
+  /* border: 1px solid yellow; */
   opacity: 0.8;
   padding: 0 10px;
 

@@ -1,5 +1,5 @@
-import core.command
-import core.regex
+import ewwii.command
+import ewwii.regex
 
 component Settings() {
   Box{
@@ -38,9 +38,9 @@ Window "settings" {
   
   let bash = "~/.config/ewwii/scripts/bash.sh"
 
-  let font_scale = command.run_and_read("bash ${bash} get scss-var font-scale")
-  let bar_transparency = command.run_and_read("bash ${bash} get scss-var bar-transparency")
-  let window_transparency = command.run_and_read("bash ${bash} get scss-var window-transparency")
+  let font_scale = command.run_and_read("bash " + bash + " get scss-var font-scale")
+  let bar_transparency = command.run_and_read("bash " + bash + " get scss-var bar-transparency")
+  let window_transparency = command.run_and_read("bash " + bash + " get scss-var window-transparency")
 
   Box {
     class = "window-container"
@@ -77,7 +77,7 @@ Window "settings" {
           min = 0.0
           max = 2.0
           value = font_scale
-          onchange = "bash ${bash} set scss-var font-scale {}"
+          onchange = "bash " + bash + " set scss-var font-scale {}"
           width = 350
         }
       }
@@ -94,7 +94,7 @@ Window "settings" {
           min = 0.0
           max = 1.0
           value = bar_transparency
-          onchange = "bash ${bash} set scss-var bar-transparency {}"
+          onchange = "bash " + bash + " set scss-var bar-transparency {}"
           width = 350
         }
       }
@@ -111,7 +111,7 @@ Window "settings" {
           min = 0.0
           max = 1.0
           value = window_transparency
-          onchange = "bash ${bash} set scss-var window-transparency {}"
+          onchange = "bash " + bash + " set scss-var window-transparency {}"
           width = 350
         }
       }
@@ -155,7 +155,7 @@ Window "settings" {
         ComboBoxText {
           width = 350
           items = schemes_list
-          onchange = "bash ${bash} set scss-var color-schemes {}"
+          onchange = "bash " + bash + " set scss-var color-schemes {}"
         }
       }
       Box {
@@ -205,12 +205,12 @@ component Wallpaper( path ) {
         orientation = "h"
         halign = "center"
 
-        let images = command.run_and_read("find ${path} -maxdepth 2 -type f -name '*.jpg'")
+        let images = command.run_and_read("find " + path + " -maxdepth 2 -type f -name '*.jpg'")
         let images_list = regex.find_all(images, "[0-9a-zA-Z-_.@/]+")
 
         for bg in images_list {
           EventBox {
-            onclick = config.setwallpaper_cmd + " ${bg} "
+            onclick = config.setwallpaper_cmd + " " + bg
             # onkeypress = "bash -c 'if [ {} == 36 ]; then ${setwallpaper_cmd}; fi'"
             cursor = "pointer"
             focusable = true
@@ -218,7 +218,7 @@ component Wallpaper( path ) {
             Image {
               content_fit = "cover"
               can_shrink = true
-              path = "${bg}"
+              path = bg
               image_width = 250
               image_height = 150
             }

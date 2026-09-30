@@ -1,4 +1,4 @@
-import core.regex
+import ewwii.regex
 
 Poll "time" {
   initial = ""

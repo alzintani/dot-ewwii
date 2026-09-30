@@ -5,11 +5,11 @@ let config = {
   
   wallpaper_path = "~/wallpaper"
 
-  bar_style = "style1"
+  bar_style = "style6"
   icons_style = "style1"
 
-  setwallpaper_cmd = "swww img --transition-type any"
-  # setwallpaper_cmd = "swaybg -i"
+  # setwallpaper_cmd = "swww img --transition-type any"
+  setwallpaper_cmd = "swaybg -i"
 
   notifi_center_cmd = "swaync-client -t"
   lockscreen_cmd = "swaylock"
@@ -25,15 +25,15 @@ let config = {
       name= ""
       tooltip= "kitty"
     }
+    firefox= {
+      command= "firefox"
+      name= ""
+      tooltip= "Firefox"
+    }
     # yazi= {
     #   command= "kitty -e yazi &"
     #   name= "󰇥"
     #   tooltip= "Yazi"
-    # }
-    # firefox= {
-    #   command= "firefox"
-    #   name= ""
-    #   tooltip= "Firefox"
     # }
   }
 }

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 get_window_title() {
   if [ -n "$SWAYSOCK" ] || [ "$XDG_CURRENT_DESKTOP" = "sway" ]; then
@@ -92,7 +92,7 @@ if [ -n "$1" ]; then
         get_volume_value
         ;;
       "scss-var")
-        get_scss_var $3
+        get_scss_var "$3"
         ;;
       *)
         echo "Usage: $0 get {window-title | workspace-active | volum-value | font-scale}"
@@ -102,7 +102,7 @@ if [ -n "$1" ]; then
   elif [ "set" = "$1" ]; then
     case "$2" in
       "scss-var")
-        set_scss_var $3 $4
+        set_scss_var "$3" "$4"
         ;;
       *)
         echo "Usage: $0 set {window_title | workspace_active | volum_value | font_scale}"
@@ -112,7 +112,7 @@ if [ -n "$1" ]; then
   elif [ "run" = "$1" ]; then
     case "$2" in
       "go-to")
-        run_go_to $3
+        run_go_to "$3"
         ;;
       *)
         echo "Usage: $0 run {go_to}"

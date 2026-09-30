@@ -1,5 +1,5 @@
-import core.command
-import api.wifi
+import ewwii.command
+# import api.wifi
 
 Script {
   every = "1s"

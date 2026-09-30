@@ -1,6 +1,6 @@
 import "nbcl/config.nbcl" as config
 import "nbcl/components.nbcl" as comps { Widgets, Separator, CloseButton }
-import "nbcl/bar.nbcl" as bar { Bar }
+import "nbcl/mainbar.nbcl" as mainbar { MainBar }
 
 Window "bar" {
   monitor = 0
@@ -19,6 +19,11 @@ Window "bar" {
     side = "top"
     distance = "0"
   }
-  Bar {}
+
+  MainBar {}
+
+  # Label {
+  #   text = "Example Content"
+  # }
 }
 
